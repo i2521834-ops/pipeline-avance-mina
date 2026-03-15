@@ -13,6 +13,9 @@ supabase = create_client(SUPABASE_URL, SUPABASE_SECRET_KEY)
 # Leer Google Sheet
 url = f"https://docs.google.com/spreadsheets/d/{GOOGLE_SHEET_ID}/gviz/tq?tqx=out:csv&gid={GOOGLE_SHEET_GID}"
 df = pd.read_csv(url)
+print("Filas leídas desde Google Sheet:", len(df))
+print("Últimos ID del sheet:")
+print(df["id_actualizacion"].tail(10))
 
 # Normalizar columnas
 df.columns = (
