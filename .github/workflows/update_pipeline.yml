@@ -1,4 +1,4 @@
-name: Update Bronze Layer
+name: Update Bronze Silver Gold
 
 on:
   workflow_dispatch:
@@ -9,7 +9,7 @@ on:
     - cron: "0 11 * * *"
 
 jobs:
-  update-bronze:
+  update-pipeline:
     runs-on: ubuntu-latest
 
     steps:
@@ -33,3 +33,9 @@ jobs:
           GOOGLE_SHEET_GID: ${{ secrets.GOOGLE_SHEET_GID }}
         run: |
           python etl/load_sheet_to_bronze.py
+
+      - name: Run Silver and Gold SQL layers
+        env:
+          SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+        run: |
+          python etl/run_sql_layers.py
