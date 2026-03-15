@@ -4,3 +4,4 @@ Actualización para relanzar workflow.
 test pipeline reload
 Corregir normalización de columnas en ETL
 Probar cambios silver
+editar README
