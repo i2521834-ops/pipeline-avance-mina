@@ -2,8 +2,8 @@ name: Update Bronze Layer
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 11 * * *"
+    schedule:
+      - cron: "0 11 * * *"
 jobs:
   update-bronze:
     runs-on: ubuntu-latest
